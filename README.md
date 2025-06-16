@@ -23,10 +23,10 @@ Conforme solicitado no escopo do projeto, as seguintes funcionalidades foram imp
 - [x] **Desenvolvimento dos Endpoints da API:**
     - [x] `GET /api/alunos`: Buscar todos os alunos.
     - [x] `POST /api/alunos`: Inserir um novo aluno, com validação de campos obrigatórios.
-    - [] `GET /api/alunos/{id}`: Buscar um aluno por ID.
-    - [] `PUT /api/alunos/{id}`: Editar as informações de um aluno.
-    - [] `DELETE /api/alunos/{id}`: Excluir um aluno.
-    - [] Implementação de 3 formas de busca (Ex: por nome, curso, etc.).
+    - [x] `GET /api/alunos/{id}`: Buscar um aluno por ID.
+    - [x] `PUT /api/alunos/{id}`: Editar as informações de um aluno.
+    - [x] `DELETE /api/alunos/{id}`: Excluir um aluno.
+    - [x] Implementação de 3 formas de busca (Ex: por nome, curso, etc.).
 - [] **Testes:**
     - [] Os endpoints foram testados utilizando a ferramenta Postman (ou Insomnia).
 
