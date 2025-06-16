@@ -1,50 +1,38 @@
 package com.gradusapi.apirest.controller;
 
-import java.util.Optional;
-
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.gradusapi.apirest.model.AlunoModel;
 import com.gradusapi.apirest.service.AlunoService;
-
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/aluno")
+@RequestMapping("/api/alunos") // observação: caminho base para os endpoints deste controller
 public class AlunoController {
+    
     @Autowired
     private AlunoService alunoService;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<AlunoModel> buscarPorId(@PathVariable Long id){
-        Optional<AlunoModel> aluno = alunoService.buscarPorId(id);
-        if (aluno.isPresent()) {
-            return new ResponseEntity<>(aluno.get(), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(new AlunoModel(), HttpStatus.NOT_FOUND);
+    // 1. ENDPOINT que busca todos os alunos
+    @GetMapping
+    public ResponseEntity<List<AlunoModel>> buscarTodos() {
+        List<AlunoModel> listaAlunos = alunoService.buscarTodos();
+        return ResponseEntity.ok(listaAlunos); // Retorna 200 OK com a lista
     }
 
+    // 2. ENDPOINT para inserir um novo aluno
     @PostMapping
-    public ResponseEntity<String> salvar(@Valid @RequestBody AlunoModel aluno){
-        String retorno = alunoService.salvar(aluno);
-        try {
-            return new ResponseEntity<>(retorno, HttpStatus.OK);    
-        } catch (Exception e) {
-            return new ResponseEntity<>(retorno, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public ResponseEntity<AlunoModel> salvar(@Valid @RequestBody AlunoModel aluno) {
+        AlunoModel alunoSalvo = alunoService.salvar(aluno);
+        return ResponseEntity.status(HttpStatus.CREATED).body(alunoSalvo); 
     }
-//salvar
-//buscar Tudo
-//buscar por id
-//buscar por nome
-//editar
-//remover
+
+    // endpoints a serem implementados(editar, excluir, buscar por id, etc.) para a 2ª entrega.
 }
