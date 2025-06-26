@@ -1,8 +1,27 @@
 API de Gerenciamento de Alunos
-Este projeto é uma API REST para o gerenciamento de alunos, desenvolvida em Java com o framework Spring Boot. A aplicação foi criada como parte de um trabalho acadêmico e implementa as operações essenciais de um CRUD (Criar, Ler, Atualizar e Excluir).
-A API permite a consulta, inserção, edição e remoção de registros de alunos, além de oferecer endpoints para buscas personalizadas (como por nome, curso, etc.). A persistência de dados é gerenciada com Spring Data JPA e o banco de dados PostgreSQL é executado em um container Docker, garantindo um ambiente de desenvolvimento isolado e de fácil configuração.
-Principais Tecnologias
-Backend: Java 17 e Spring Boot 3
-Persistência: Spring Data JPA / Hibernate
+📝 Descrição do Projeto
+Esta é uma API REST desenvolvida para um trabalho acadêmico, com o objetivo de gerenciar informações de alunos de um campus. A aplicação permite realizar as operações básicas de um sistema de manutenção de dados (CRUD - Create, Read, Update, Delete).
+A API foi construída utilizando Java com o framework Spring Boot. A persistência de dados é feita através do Spring Data JPA, e o banco de dados é executado em um container Docker para facilitar a configuração do ambiente.
+✅ Funcionalidades
+Carga Inicial de Dados: Um programa separado foi utilizado para ler os dados de alunos e popular o banco de dados.
+API REST Completa:
+Configuração do Banco de Dados:
+Criação do Diagrama de Entidade-Relacionamento (DER).
+Configuração do banco de dados com Docker e Docker Compose.
+Mapeamento Objeto-Relacional (ORM) com JPA/Hibernate.
+Desenvolvimento dos Endpoints:
+CRUD completo para a entidade Aluno.
+Validação de dados na entrada (ex: campos obrigatórios).
+Implementação de 3 formas de busca personalizada (ex: por nome, curso, etc.).
+Testes:
+Endpoints testados utilizando a ferramenta  Insomnia.
+🛠️ Tecnologias Utilizadas
+Linguagem: Java 17
+Framework: Spring Boot 3
+Módulos Principais:
+Spring Web
+Spring Data JPA
+Spring Validation
 Banco de Dados: PostgreSQL
-Ambiente: Docker e Docker Compose
+Containerização: Docker e Docker Compose
+Build Tool: Maven
